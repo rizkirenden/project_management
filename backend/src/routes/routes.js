@@ -6,6 +6,7 @@ const DepartmentController = require("../controllers/departmentController");
 const ProjectController = require("../controllers/projectController");
 const TaskController = require("../controllers/taskController");
 const TaskCommentController = require("../controllers/taskCommentController");
+const ProjectMemberController = require("../controllers/projectMemberController");
 
 router.post("/register", UserController.register);
 router.post("/login", UserController.login);
@@ -32,5 +33,12 @@ router.delete("/task/:id", TaskController.delete);
 router.post("/task", TaskCommentController.create);
 router.get("/task/:taskId", TaskCommentController.getByTask);
 router.delete("/task/:id", TaskCommentController.delete);
+
+router.get("/projectmember", ProjectMemberController.getAll);
+router.get("/projectmember/:id", ProjectMemberController.getById);
+router.get("/project/:projectId", ProjectMemberController.getByProject);
+router.post("/projectmember", ProjectMemberController.create);
+router.put("/projectmember/:id", ProjectMemberController.update);
+router.delete("/:id", ProjectMemberController.delete);
 
 module.exports = router;
